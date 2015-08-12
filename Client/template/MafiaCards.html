@@ -1,0 +1,29 @@
+<head>
+  <title>MafiaCards</title>
+</head>
+
+<body>
+  <h1>Mafia!</h1>
+  {{> town}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="town">
+	<h2>Civilians</h2>
+	<!--{{#each townIn}}-->
+		<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div class="front">
+				<img src="/image/mafiacard-clairedarnell.png">
+			</div>
+			<div class="back">
+				<h3>Player Name</h3>
+			</div>
+		</div>
+		</div>
+	<!--{{#each townIn}}-->
+</template>
