@@ -3,27 +3,66 @@
 </head>
 
 <body>
-  <h1>Mafia!</h1>
-  {{> town}}
+	{{>MafiaCards}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="MafiaCards">
+	{{#if inSession}}
+		<h2>Mafia!</h2>
+		{{> town}}
+	{{else}}
+		{{> Phase1}}
+	{{/if}}
 </template>
 
+<template name="Phase1">
+	<p id="msg">Enter the number of players to add: </p>
+	<input type="number" id="totalNum" ><br /><br /><button id="btnGetNameFields">add</button>
+	<br />
+	<!-- {{form_changed}} -->
+	{{#each player}}
+		<p>Name of Player{{this.playerNum}}:</p>
+		<input type="text" class="pName" id="{{this._id}}" placeholder={{this.name}}>
+		<button class="delete">delete</button>
+		<br />
+	{{/each}}
+	<hr />
+	<button id="btnSubmit">New Game</button>
+</template>
+
+
 <template name="town">
-	<h2>Civilians</h2>
-	<!--{{#each townIn}}-->
-		<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+	<div class="cardCaptor">
+	<h3>Town</h3>
+	{{#each townPlayer}}
+		<div class="flip-container" style="padding: 5px;">
+		
 		<div class="flipper">
 			<div class="front">
-				<img src="/image/mafiacard-clairedarnell.png">
+				<img src="/image/town.png">
 			</div>
 			<div class="back">
-				<h3>Player Name</h3>
+				<h1>{{this.name}}</h1>
+			</div>
+		</div>
+
+		</div>
+	{{/each}}
+	</div>
+	
+	<div class="cardCaptor">
+	<h3>Mafia</h3>
+	{{#each mafiaPlayer}}
+		<div class="flip-container" style="padding: 5px;">
+		<div class="flipper">
+			<div class="front">
+				<img src="/image/mafia.png">
+			</div>
+			<div class="back">
+				<h1>{{this.name}}</h1>
 			</div>
 		</div>
 		</div>
-	<!--{{#each townIn}}-->
+	{{/each}}
+	</div>
 </template>

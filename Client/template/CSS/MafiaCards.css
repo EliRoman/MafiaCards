@@ -1,3 +1,6 @@
+body{
+	text-align: center;
+}
 
 /* entire container, keeps perspective */
 .flip-container {
@@ -13,11 +16,21 @@
 	height: 368px;
 
 }
-.back{
+#cardCaptor{
+	border-radius: 30;
+	border-color: red;
+	border-width: 5px;
+	border: solid;
+	float: left;
+}
+img{
+	border-radius: 40px
+}
+.back, .front{
 	background-color: #303137;
 	border-radius: 40px;
 }
-h3{
+h1{
 	text-align: center;
 	color: gold;
 	margin-top: 50%;
