@@ -33,16 +33,15 @@
 
 <template name="town">
 	<div class="cardCaptor">
-	<h3>Town</h3>
-	{{#each townPlayer}}
+	{{#each inPlayer}}
 		<div class="flip-container" style="padding: 5px;">
 		
 		<div class="flipper">
 			<div class="front">
-				<img src="/image/town.png">
+				<h1>{{this.name}}</h1>
 			</div>
 			<div class="back">
-				<h1>{{this.name}}</h1>
+				<img src={{this.img}}>
 			</div>
 		</div>
 
@@ -50,9 +49,8 @@
 	{{/each}}
 	</div>
 	
-	<div class="cardCaptor">
-	<h3>Mafia</h3>
-	{{#each mafiaPlayer}}
+<!-- 	<div class="cardCaptor">
+	{{#each outPlayer}}
 		<div class="flip-container" style="padding: 5px;">
 		<div class="flipper">
 			<div class="front">
@@ -64,5 +62,5 @@
 		</div>
 		</div>
 	{{/each}}
-	</div>
+	</div> -->
 </template>

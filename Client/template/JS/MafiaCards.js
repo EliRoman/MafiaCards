@@ -55,14 +55,27 @@ if (Meteor.isClient) {
       };
       roles = shuffle(roles);
 
-      
       for ( i = 0; i < playerCount; i++) {//assigning all player data to allPlayers array
+        if (roles[i]=="Mafia") {
           players.insert({
-          name: ("player"+i),
-          role: roles[i],
-          playerNum: i
+            name: ("player"+i),
+            role: roles[i],
+            playerNum: i,
+            img: "/image/mafia.png"
           });
+        };
+
+        if (roles[i]=="Town") {
+          players.insert({
+            name: ("player"+i),
+            role: roles[i],
+            playerNum: i,
+            img: "/image/town.png"
+          });
+        };
+
       };
+
       // Session.set('inSession', true);
       Session.set('form_changed', Date.now() );//changed to make template update
     },
@@ -86,16 +99,16 @@ if (Meteor.isClient) {
   });
 
   Template.town.helpers({
-    townPlayer: function(){
+    inPlayer: function(){
       return players.find({
-        role: "Town"
-      });
-    },
-    mafiaPlayer: function(){
-      return players.find({
-        role: "Mafia"
       });
     }
+    // ,
+    // outPlayer: function(){
+    //   return players.find({
+    //     in: "False"
+    //   });
+    // }
   });
 }
 
